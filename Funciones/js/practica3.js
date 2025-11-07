@@ -1,0 +1,50 @@
+const resultadoDiv = document.getElementById('resultado');
+
+// Función principal
+function filtro(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] = callback(array[i]);
+  }
+  return array; // opcional, pero cómodo para mostrar o encadenar
+}
+
+// Caso 1
+let numeros = [1, 2, 3, 4];
+filtro(numeros, function (num) {
+  return num * 2;
+});
+
+resultadoDiv.innerHTML += `<p><strong>Multiplicar por 2:</strong> ${numeros.join(
+  ', '
+)}</p>`;
+
+//Caso 2:
+let palabras = ['práctica3', 'funciones', 'javascript'];
+filtro(palabras, function (texto) {
+  return texto.toUpperCase();
+});
+
+resultadoDiv.innerHTML += `<p><strong>Palabras en mayúsculas:</strong> ${palabras.join(
+  ', '
+)}</p>`;
+
+//Caso 3:
+let numeros2 = [3, 5, 7];
+
+filtro(numeros2, function (n) {
+  return factorial(n);
+});
+
+resultadoDiv.innerHTML += `<p><strong>Factoriales:</strong> ${numeros2.join(
+  ', '
+)}</p>`;
+
+// Función auxiliar para calcular factorial
+function factorial(num) {
+  if (num === 0 || num === 1) return 1;
+  let resultado = 1;
+  for (let i = 2; i <= num; i++) {
+    resultado *= i;
+  }
+  return resultado;
+}
