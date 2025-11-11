@@ -1,9 +1,13 @@
-/* Ejercicio 2: Crea un array vacío llamado letras. Inserta al principio del array las letras A, B y C. Luego, inserta al final las letras D y E. Finalmente, elimina el primer elemento y el último, e imprime el array final. */
+/* Ejercicio 2:
+Crea un array vacío llamado letras. Inserta al principio del array las letras A, B y C.
+Luego, inserta al final las letras D y E.
+Finalmente, elimina el primer elemento y el último, e imprime el array final.
+*/
 
 // Creamos un array vacío
 let letras = [];
 
-// Insertamos A, B y C al principio
+// Insertamos A, B y C al principio (en orden inverso, ya que unshift añade al inicio)
 letras.unshift('C');
 letras.unshift('B');
 letras.unshift('A');

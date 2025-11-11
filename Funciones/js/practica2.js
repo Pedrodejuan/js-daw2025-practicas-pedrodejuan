@@ -1,14 +1,14 @@
 const resultadoDiv = document.getElementById('resultado');
-const palabras = pedirPalabras();
+const palabras = pedirPalabras(); // función definida en main.js
 
-//Si no introduce nada
+// Si no introduce nada
 if (palabras.length === 0) {
   resultadoDiv.innerHTML += '<p>No se introdujo nada.</p>';
 } else {
-  //Mapa con los recuentos
+  // Creamos un mapa con el número de veces que aparece cada palabra
   const mapaPalabras = contarPalabras(palabras);
 
-  // Mostrar los resultados
+  // Mostramos los resultados
   let resultadoHTML = '';
   for (const [palabra, cantidad] of mapaPalabras) {
     resultadoHTML += `${palabra}: ${cantidad}<br>`;
@@ -17,12 +17,14 @@ if (palabras.length === 0) {
   resultadoDiv.innerHTML += `<p>${resultadoHTML}</p>`;
 }
 
-// array en map
+// Función que recibe un array y devuelve un Map con el recuento de palabras
 function contarPalabras(array) {
   const mapa = new Map();
+
   array.forEach((palabra) => {
-    const clave = palabra.toLowerCase();
-    mapa.set(clave, (mapa.get(clave) || 0) + 1);
+    const clave = palabra.toLowerCase(); // para que no distinga mayúsculas
+    mapa.set(clave, (mapa.get(clave) || 0) + 1); // si existe, suma 1; si no, empieza en 1
   });
+
   return mapa;
 }
